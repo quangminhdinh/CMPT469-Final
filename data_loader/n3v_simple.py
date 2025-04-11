@@ -113,8 +113,8 @@ class N3VSimpleDataset(Dataset):
 
         # cutoff = 7
         split_indices = {
-            "train": [idx for idx in all_indices if int(image_names[idx][4]) < cutoff_train],
-            "test": [idx for idx in all_indices if int(image_names[idx][4]) >= cutoff_test],
+            "train": [idx for idx in all_indices if int(image_names[idx][4]) == 0],
+            "test": [idx for idx in all_indices if int(image_names[idx][4]) == 7],
         }
         # assert len(split_indices["train"]) + len(split_indices["test"]) == len(self.image_paths)
         # assert len(split_indices["train"]) > len(split_indices["test"])
