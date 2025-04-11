@@ -1,0 +1,46 @@
+# Model Parameters
+sh_degree: 3
+init_points: 131_072
+final_points: 2_097_152
+activation_scale: 1
+device: cuda
+max_frames: 10
+np: 3
+
+# Pipeline Parameters
+iterations: 50_000
+densify_from: 2_000
+densify_until: 31_000
+densify_factor: 1.15
+white_background: true
+quantile_weight: 1e-4
+viewer: false                          # Flag to use viewer
+debug: false                               # Flag to not use tensorboard
+
+# Optimization Parameters
+points_lr_init: 10e-6
+points_lr_final: 5e-7
+deform_lr_init: 14e-6 # 1.75 point
+deform_lr_final: 9e-7
+density_lr_init: 5e-2 
+density_lr_final: 1e-3
+attributes_lr_init: 1e-3
+attributes_lr_final: 5e-5
+temporal_center_lr_init: 1e-4  # duration 0.03 center 0.0001
+temporal_center_lr_final: 5e-6
+temporal_duration_lr_init: 8e-3  # duration 0.03 center 0.0001
+temporal_duration_lr_final: 3e-4
+temporal_attr_scale_lr_init: 8e-5 
+temporal_attr_scale_lr_final: 3e-6
+sh_factor: 0.1
+freeze_points: 48_000                # Points are frozen after this cycle
+
+# Dataset Parameters
+dataset: "n3v_multi"
+data_path: "data/N3V"
+scene: "coffee_martini"
+patch_based: false
+downsample: [4]                     # Image downsample factors
+downsample_iterations: [0]
+bs: 1
+max_f: 10
